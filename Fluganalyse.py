@@ -177,7 +177,8 @@ def print_filtered_flights():
 
 
 def print_help():
-    print("\n === Liste aller Befehle ===")
+    print("\n")
+    print(" === Liste aller Befehle ===")
     print("   help         -   Zeigt dieses Menü")
     print("   cls          -   Löscht den Konsoleninhalt")
     print("   exit         -   Schließt die Anwendung")
