@@ -178,14 +178,14 @@ def print_filtered_flights():
 
 def print_help():
     print("\n === Liste aller Befehle ===")
-    print("   help       -   Zeigt dieses Menü")
-    print("   cls        -   Löscht den Konsoleninhalt")
-    print("   exit       -   Schließt die Anwendung")
-    print("   liste      -   Zeigt die aktuell gefilterte Liste an")
-    print("   filter     -   Ändert Filterbedingung")
-    print("   analyse    -   Analysiert einen Flug")
-    print("   speichern  -   Speichert aktuell gefilterte Liste als Datei ab")
-    print("   statistik  -   Generiert Statistiken aller Flüge")
+    print("   help         -   Zeigt dieses Menü")
+    print("   cls          -   Löscht den Konsoleninhalt")
+    print("   exit         -   Schließt die Anwendung")
+    print("   liste        -   Zeigt die aktuell gefilterte Liste an")
+    print("   filter       -   Ändert Filterbedingung")
+    print("   analyse      -   Analysiert einen Flug")
+    print("   speichern    -   Speichert aktuell gefilterte Liste als Datei ab")
+    print("   statistik    -   Generiert Statistiken aller Flüge")
     print()
 
 
@@ -281,7 +281,7 @@ def analyse_flight():
 
 
 def generate_statistics():
-    print("Noch nicht implementiert. Hier würden jetzt allgemeine statistiken über alle Flüge stehen + Diagramme")
+    print("Noch nicht implementiert. Hier würden jetzt allgemeine Statistiken über alle Flüge stehen + Diagramme")
     #TODO
     #avg dauer
     #avg startzeit
@@ -311,9 +311,9 @@ def on_startup():
         hours = math.floor(min/60)
         min = min % 60
         duration = f"{hours:02}:{min:02}:{sec:02}"
-        data.append([flight["flight_number"], flight["date"].strftime('%d/%m/%Y'), flight["start_time"].strftime('%H:%M:%S'), duration, flight["place"]])
+        data.append([flight["flight_number"], flight["date"].strftime('%d/%m/%Y'), flight["start_time"].strftime('%H:%M:%S'), flight["end_time"].strftime('%H:%M:%S'), duration, flight["place"]])
     
-    df = pd.DataFrame(data, columns=["Flugnummer", "Datum", "Zeit", "Dauer", "Ort"])
+    df = pd.DataFrame(data, columns=["Flugnummer", "Datum", "Zeit (Start)", "Zeit (Ende)", "Dauer", "Ort"])
     df.to_excel("Alle_Flugdaten.xlsx", sheet_name="Flugdaten", index=False)
 
 
